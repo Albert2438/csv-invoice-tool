@@ -1,16 +1,66 @@
-# React + Vite
+# CSV to Invoice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, browser-based tool that turns a CSV of billing data into a polished, downloadable PDF invoice — no sign-up, no server, no data stored anywhere. Upload, fill in a few details, download.
 
-Currently, two official plugins are available:
+![CSV to Invoice demo](./demo.gif)
+<!-- Replace with an actual screen recording once you have one -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 📁 Upload a CSV of line items (item, quantity, price)
+- ✏️ Enter client name and tax rate
+- 🧮 Automatic subtotal, tax, and grand total calculation
+- 📄 One-click PDF download of a clean invoice layout
+- 🔒 Fully client-side — no data ever leaves your browser
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **React** (Vite) — UI and state management
+- **Tailwind CSS** — styling
+- **PapaParse** — CSV parsing
+- **jsPDF + html2canvas** — PDF generation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How It Works
+
+1. Upload a CSV file with columns: `client_name`, `item`, `quantity`, `price`
+2. Enter the client's name and your tax rate
+3. Review the auto-calculated line totals, subtotal, tax, and grand total
+4. Click **Download PDF** to get a ready-to-send invoice
+
+## Sample CSV Format
+
+```csv
+client_name,item,quantity,price
+Acme Corp,Web Design,1,500
+Acme Corp,Hosting,3,20
+Acme Corp,Domain Registration,1,15
+```
+
+## Getting Started Locally
+
+```bash
+git clone https://github.com/<your-username>/csv-to-invoice.git
+cd csv-to-invoice
+npm install
+npm run dev
+```
+
+## Live Demo
+
+[View live demo](#) <!-- Add your Vercel link once deployed -->
+
+## Why I Built This
+
+As part of building out my full-stack portfolio, I wanted a project that went beyond a standard CRUD app — something that combined file handling, data transformation, and document generation entirely in the browser, with a clean, no-friction user experience inspired by tools like iLovePDF.
+
+## Roadmap / Possible Improvements
+
+- [ ] Currency formatting
+- [ ] Business info fields (name, logo, address)
+- [ ] Invoice number and date fields
+- [ ] CSV validation with helpful error messages
+- [ ] Multi-currency support
+
+## License
+
+MIT
